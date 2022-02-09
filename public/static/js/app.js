@@ -23,6 +23,13 @@ function initPage($){
         e.preventDefault();
         $('.sidebar').toggleClass('toggled');
     });
+    
+    /**
+     * for number format
+     */
+    $("input.number, .number").each(function () {
+        $(this).number($(this).text(), 0, '.', ',');
+    });
 
     /**
      * for permissions dependancy checked auto
