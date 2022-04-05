@@ -71,11 +71,27 @@ function initPage($){
         $(":checkbox").prop('checked', false);
     });
     
+    
+    $('.depense_product_prices').change(function(e){
+       var prices = $('input[name="prices[]"]').map(function () {
+            return this.value;
+       }).get();    
+       var totalAmount = 0;
+       
+       prices.forEach(function(p){
+          totalAmount += parseInt(p); 
+       });
+       
+       $('#depense_total_amount').html(totalAmount);
+    });
+    
     /**
      For select2 search
     */
     $(".select2js").select2({
         allowClear: false
     });
+    
+    $('.depense_product_prices').trigger('change');
 }
 
